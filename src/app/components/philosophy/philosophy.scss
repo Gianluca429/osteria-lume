@@ -1,0 +1,124 @@
+.philosophy {
+    background-color: var(--color-background);
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 760px;
+    }
+
+    &__image-wrapper {
+        min-height: 760px;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+
+        padding: var(--space-7);
+    }
+
+    &__content-inner {
+        max-width: 540px;
+    }
+
+    &__eyebrow {
+        margin-bottom: var(--space-3);
+
+        color: var(--color-olive);
+
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        font-size: clamp(46px, 4.5vw, 68px);
+        line-height: 0.98;
+    }
+
+    &__copy {
+        margin-top: var(--space-4);
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+
+        color: rgba(37, 35, 31, 0.72);
+
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+
+        margin-top: var(--space-5);
+        padding-bottom: 6px;
+
+        border-bottom: 1px solid currentColor;
+
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+
+        transition:
+            color var(--transition-fast),
+            gap var(--transition-fast);
+
+        &:hover {
+            color: var(--color-olive);
+            gap: 18px;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .philosophy {
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+
+        &__image-wrapper {
+            min-height: 560px;
+        }
+
+        &__content {
+            padding:
+                var(--space-7) var(--container-padding);
+        }
+
+        &__content-inner {
+            max-width: 680px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .philosophy {
+        &__image-wrapper {
+            min-height: 480px;
+        }
+
+        &__content {
+            padding-block: var(--space-7);
+        }
+
+        &__title {
+            font-size: 40px;
+        }
+    }
+}

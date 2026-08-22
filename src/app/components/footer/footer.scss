@@ -1,0 +1,232 @@
+.footer {
+    position: relative;
+
+    overflow: hidden;
+
+    padding-top: 72px;
+
+    background-color: #211f1b;
+    color: var(--color-text-light);
+
+    &__inner {
+        position: relative;
+    }
+
+    &__top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: var(--space-5);
+
+        padding-bottom: 64px;
+    }
+
+    &__brand {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        width: fit-content;
+    }
+
+    &__brand-small {
+        margin-bottom: -4px;
+
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+    }
+
+    &__brand-main {
+        font-family: var(--font-heading);
+        font-size: 46px;
+        line-height: 1;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        a {
+            font-size: 13px;
+
+            opacity: 0.72;
+
+            transition: opacity var(--transition-fast);
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__social {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        a {
+            font-size: 13px;
+
+            opacity: 0.72;
+
+            transition: opacity var(--transition-fast);
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+    }
+
+    &__middle {
+        padding-block: 28px;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+
+        p {
+            font-family: var(--font-heading);
+            font-size: 24px;
+
+            opacity: 0.85;
+        }
+
+        span {
+            margin-inline: 8px;
+
+            opacity: 0.4;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-4);
+
+        padding-block: 28px 36px;
+
+        font-size: 11px;
+        letter-spacing: 0.04em;
+
+        opacity: 0.65;
+    }
+
+    &__legal {
+        display: flex;
+        gap: 24px;
+    }
+
+    &__back-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+
+        span {
+            transition: transform var(--transition-fast);
+        }
+
+        &:hover span {
+            transform: translateY(-4px);
+        }
+    }
+
+    &__wordmark {
+        margin-bottom: -0.15em;
+
+        font-family: var(--font-heading);
+        font-size: clamp(150px, 24vw, 360px);
+        font-weight: 500;
+        line-height: 0.72;
+        letter-spacing: -0.06em;
+
+        text-align: center;
+
+        color: rgba(255, 255, 255, 0.055);
+
+        user-select: none;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding-top: 56px;
+
+        &__top {
+            grid-template-columns: 1fr 1fr;
+
+            padding-bottom: 48px;
+        }
+
+        &__brand {
+            grid-column: 1 / -1;
+
+            margin-bottom: 24px;
+        }
+
+        &__middle {
+            p {
+                font-size: 20px;
+            }
+        }
+
+        &__bottom {
+            flex-wrap: wrap;
+
+            padding-bottom: 28px;
+        }
+
+        &__legal {
+            order: 3;
+
+            width: 100%;
+        }
+
+        &__wordmark {
+            margin-top: 24px;
+
+            font-size: 30vw;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        &__top {
+            grid-template-columns: 1fr;
+        }
+
+        &__brand {
+            grid-column: auto;
+        }
+
+        &__social {
+            margin-top: 16px;
+        }
+
+        &__middle {
+            p {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+}
