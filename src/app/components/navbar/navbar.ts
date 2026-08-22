@@ -1,9 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
-  imports: [],
   selector: 'app-navbar',
-  styleUrl: './navbar.scss',
+  imports: [],
   templateUrl: './navbar.html',
+  styleUrl: './navbar.scss',
 })
-export class Navbar {}
+export class Navbar {
+  readonly isMenuOpen = signal(false);
+
+  toggleMenu(): void {
+    this.isMenuOpen.update((isOpen) => !isOpen);
+
+    document.body.style.overflow = this.isMenuOpen() ? 'hidden' : '';
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen.set(false);
+
+    document.body.style.overflow = '';
+  }
+}

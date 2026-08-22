@@ -156,7 +156,8 @@
         }
 
         &__cta {
-            width: 100%;
+            width: fit-content;
+            align-self: flex-start;
             margin-top: var(--space-4);
         }
 

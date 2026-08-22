@@ -12,6 +12,10 @@
         position: relative;
     }
 
+    // ---------------------------------
+    // Top
+    // ---------------------------------
+
     &__top {
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
@@ -19,6 +23,10 @@
 
         padding-bottom: 64px;
     }
+
+    // ---------------------------------
+    // Brand
+    // ---------------------------------
 
     &__brand {
         display: inline-flex;
@@ -43,6 +51,10 @@
         line-height: 1;
     }
 
+    // ---------------------------------
+    // Navigation
+    // ---------------------------------
+
     &__nav {
         display: flex;
         flex-direction: column;
@@ -61,6 +73,10 @@
             }
         }
     }
+
+    // ---------------------------------
+    // Social
+    // ---------------------------------
 
     &__social {
         display: flex;
@@ -88,6 +104,10 @@
         text-transform: uppercase;
     }
 
+    // ---------------------------------
+    // Claim
+    // ---------------------------------
+
     &__middle {
         padding-block: 28px;
 
@@ -95,18 +115,35 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 
         p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            margin: 0;
+
             font-family: var(--font-heading);
             font-size: 24px;
+            line-height: 1.2;
 
             opacity: 0.85;
         }
+    }
 
-        span {
-            margin-inline: 8px;
+    &__middle-line {
+        display: inline-block;
+
+        &+&::before {
+            content: '·';
+
+            margin-right: 8px;
 
             opacity: 0.4;
         }
     }
+
+    // ---------------------------------
+    // Bottom
+    // ---------------------------------
 
     &__bottom {
         display: flex;
@@ -144,6 +181,10 @@
         }
     }
 
+    // ---------------------------------
+    // Giant LUME wordmark
+    // ---------------------------------
+
     &__wordmark {
         margin-bottom: -0.15em;
 
@@ -162,12 +203,17 @@
     }
 }
 
+// =====================================
+// Tablet / Mobile
+// =====================================
+
 @media (max-width: 768px) {
     .footer {
         padding-top: 56px;
 
         &__top {
             grid-template-columns: 1fr 1fr;
+            row-gap: 36px;
 
             padding-bottom: 48px;
         }
@@ -175,12 +221,25 @@
         &__brand {
             grid-column: 1 / -1;
 
-            margin-bottom: 24px;
+            margin-bottom: 8px;
         }
 
         &__middle {
+            padding-block: 28px;
+
             p {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+
                 font-size: 20px;
+                line-height: 1.25;
+            }
+        }
+
+        &__middle-line {
+            &+&::before {
+                display: none;
             }
         }
 
@@ -204,6 +263,10 @@
     }
 }
 
+// =====================================
+// Small mobile
+// =====================================
+
 @media (max-width: 480px) {
     .footer {
         &__top {
@@ -215,18 +278,17 @@
         }
 
         &__social {
-            margin-top: 16px;
+            margin-top: 0;
         }
 
-        &__middle {
-            p {
-                display: flex;
-                flex-direction: column;
+        &__bottom {
+            row-gap: 28px;
+        }
 
-                span {
-                    display: none;
-                }
-            }
+        &__wordmark {
+            margin-top: 20px;
+
+            font-size: 32vw;
         }
     }
 }
