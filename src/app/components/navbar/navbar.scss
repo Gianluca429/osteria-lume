@@ -1,9 +1,16 @@
 .navbar {
-    position: absolute;
+    position: fixed;
     inset: 0 0 auto;
     z-index: 100;
 
+    background-color: transparent;
     color: var(--color-text-light);
+
+    transition:
+        background-color 350ms var(--ease-out-soft),
+        color 350ms var(--ease-out-soft),
+        box-shadow 350ms var(--ease-out-soft),
+        backdrop-filter 350ms var(--ease-out-soft);
 
     &__inner {
         position: relative;
@@ -15,11 +22,14 @@
         align-items: center;
         justify-content: space-between;
         gap: var(--space-4);
+
+        transition:
+            min-height 350ms var(--ease-out-soft);
     }
 
-    // -----------------------------
+    // ---------------------------------
     // Logo
-    // -----------------------------
+    // ---------------------------------
 
     &__logo {
         display: flex;
@@ -28,11 +38,15 @@
         line-height: 0.8;
         text-transform: uppercase;
 
+        transition: transform 350ms var(--ease-out-soft);
+
         span {
             font-family: var(--font-body);
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.18em;
+
+            transition: font-size 350ms var(--ease-out-soft);
         }
 
         strong {
@@ -40,12 +54,14 @@
             font-size: 34px;
             font-weight: 500;
             letter-spacing: 0.02em;
+
+            transition: font-size 350ms var(--ease-out-soft);
         }
     }
 
-    // -----------------------------
-    // Desktop
-    // -----------------------------
+    // ---------------------------------
+    // Desktop navigation
+    // ---------------------------------
 
     &__links {
         display: flex;
@@ -100,14 +116,14 @@
             color var(--transition-fast);
 
         &:hover {
-            background-color: var(--color-surface);
-            color: var(--color-text);
+            background-color: var(--color-text);
+            color: var(--color-surface);
         }
     }
 
-    // -----------------------------
+    // ---------------------------------
     // Mobile toggle
-    // -----------------------------
+    // ---------------------------------
 
     &__menu-toggle {
         display: none;
@@ -126,7 +142,7 @@
             position: absolute;
             left: 0;
 
-            width: 100%;
+            width: 24px;
             height: 1px;
 
             background-color: currentColor;
@@ -142,13 +158,42 @@
         }
 
         &::after {
-            bottom: 2px;
+            bottom: 3px;
         }
     }
 
-    // -----------------------------
+    // ---------------------------------
+    // Scrolled state
+    // ---------------------------------
+
+    &--scrolled {
+        background-color: rgba(244, 240, 232, 0.9);
+        color: var(--color-text);
+
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+
+        box-shadow:
+            0 1px 0 rgba(37, 35, 31, 0.08);
+
+        .navbar__inner {
+            min-height: 76px;
+        }
+
+        .navbar__logo {
+            span {
+                font-size: 9px;
+            }
+
+            strong {
+                font-size: 28px;
+            }
+        }
+    }
+
+    // ---------------------------------
     // Mobile overlay
-    // -----------------------------
+    // ---------------------------------
 
     &__mobile {
         position: fixed;
@@ -250,26 +295,44 @@
         color: rgba(255, 255, 255, 0.65);
     }
 
-    // Hamburger -> X
+    // ---------------------------------
+    // Menu open
+    // ---------------------------------
 
     &--open {
+        background-color: transparent;
+        color: var(--color-text-light);
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+
+        box-shadow: none;
+
+        .navbar__inner {
+            min-height: 96px;
+        }
+
         .navbar__menu-icon {
             &::before {
                 top: 50%;
-                transform: translateY(-50%) rotate(45deg);
+
+                transform:
+                    translateY(-50%) rotate(45deg);
             }
 
             &::after {
                 bottom: 50%;
-                transform: translateY(50%) rotate(-45deg);
+
+                transform:
+                    translateY(50%) rotate(-45deg);
             }
         }
     }
 }
 
-// ---------------------------------
+// =====================================
 // Mobile
-// ---------------------------------
+// =====================================
 
 @media (max-width: 768px) {
     .navbar {
@@ -313,14 +376,69 @@
 
             cursor: pointer;
         }
+
+        &--scrolled {
+            padding-block: 12px;
+
+            .navbar__inner {
+                min-height: auto;
+            }
+
+            .navbar__logo {
+                span {
+                    font-size: 8px;
+                }
+
+                strong {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        &--open {
+            padding-block: 20px;
+
+            .navbar__inner {
+                min-height: auto;
+            }
+
+            .navbar__logo {
+                span {
+                    font-size: 9px;
+                }
+
+                strong {
+                    font-size: 28px;
+                }
+            }
+        }
     }
 }
 
-// Overlay non necessario su desktop
+// =====================================
+// Desktop only
+// =====================================
+
 @media (min-width: 769px) {
     .navbar {
         &__mobile {
             display: none;
         }
+    }
+}
+
+// =====================================
+// Reduced motion
+// =====================================
+
+@media (prefers-reduced-motion: reduce) {
+
+    .navbar,
+    .navbar__inner,
+    .navbar__logo span,
+    .navbar__logo strong,
+    .navbar__menu-icon::before,
+    .navbar__menu-icon::after {
+        transition: none;
     }
 }

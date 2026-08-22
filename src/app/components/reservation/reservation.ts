@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { RevealDirective } from '../../directives/reveal';
 
 @Component({
-  imports: [],
+  imports: [RevealDirective],
   selector: 'app-reservation',
   styleUrl: './reservation.scss',
   templateUrl: './reservation.html',

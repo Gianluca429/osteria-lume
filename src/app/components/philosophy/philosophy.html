@@ -1,7 +1,8 @@
 <section class="philosophy" id="cucina">
   <div class="philosophy__grid">
-    <div class="philosophy__image-wrapper">
+    <div class="philosophy__image-wrapper" appReveal [revealDelay]="0">
       <img
+        loading="lazy"
         class="philosophy__image"
         src="/images/chef.jpg"
         alt="Chef di Osteria Lume al lavoro in cucina"
@@ -10,11 +11,13 @@
 
     <div class="philosophy__content">
       <div class="philosophy__content-inner">
-        <p class="philosophy__eyebrow">La nostra cucina</p>
+        <p class="philosophy__eyebrow" appReveal [revealDelay]="80">La nostra cucina</p>
 
-        <h2 class="philosophy__title">La cucina parte dalla materia prima.</h2>
+        <h2 class="philosophy__title" appReveal [revealDelay]="140">
+          La cucina parte dalla materia prima.
+        </h2>
 
-        <div class="philosophy__copy">
+        <div class="philosophy__copy" appReveal [revealDelay]="200">
           <p>
             Selezioniamo piccoli produttori italiani e ingredienti che rispettano il ritmo delle
             stagioni.
@@ -26,7 +29,7 @@
           </p>
         </div>
 
-        <a class="philosophy__link" href="#storia">
+        <a class="philosophy__link" href="#storia" appReveal [revealDelay]="260">
           Scopri la nostra storia
           <span aria-hidden="true">→</span>
         </a>

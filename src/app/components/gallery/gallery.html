@@ -1,30 +1,58 @@
 <section class="gallery" id="galleria">
   <div class="container">
     <header class="gallery__header">
-      <p class="gallery__eyebrow">Dentro Lume</p>
+      <p class="gallery__eyebrow" appReveal [revealDelay]="0">Dentro Lume</p>
 
-      <h2 class="gallery__title">Momenti, dettagli, persone.</h2>
+      <h2 class="gallery__title" appReveal [revealDelay]="80">
+        Atmosfere, dettagli,<br />
+        momenti.
+      </h2>
     </header>
 
     <div class="gallery__grid">
-      <figure class="gallery__item gallery__item--large">
-        <img src="/images/gallery-sala.jpg" alt="Sala di Osteria Lume" />
+      <figure class="gallery__item gallery__item--large" appReveal [revealDelay]="80">
+        <img
+          decoding="async"
+          loading="lazy"
+          src="/images/gallery-sala.jpg"
+          alt="La sala di Osteria Lume"
+        />
       </figure>
 
-      <figure class="gallery__item gallery__item--wine">
-        <img src="/images/gallery-vino.jpg" alt="Calice di vino servito a Osteria Lume" />
+      <figure class="gallery__item gallery__item--wine" appReveal [revealDelay]="110">
+        <img
+          decoding="async"
+          loading="lazy"
+          src="/images/gallery-vino.jpg"
+          alt="Calice di vino a Osteria Lume"
+        />
       </figure>
 
-      <figure class="gallery__item gallery__item--table">
-        <img src="/images/gallery-tavolo.jpg" alt="Tavolo apparecchiato di Osteria Lume" />
+      <figure class="gallery__item gallery__item--table" appReveal [revealDelay]="140">
+        <img
+          decoding="async"
+          loading="lazy"
+          src="/images/gallery-tavolo.jpg"
+          alt="Tavolo apparecchiato di Osteria Lume"
+        />
       </figure>
 
-      <figure class="gallery__item gallery__item--ingredients">
-        <img src="/images/gallery-ingredienti.jpg" alt="Ingredienti freschi utilizzati in cucina" />
+      <figure class="gallery__item gallery__item--ingredients" appReveal [revealDelay]="170">
+        <img
+          decoding="async"
+          loading="lazy"
+          src="/images/gallery-ingredienti.jpg"
+          alt="Ingredienti freschi utilizzati in cucina"
+        />
       </figure>
 
-      <figure class="gallery__item gallery__item--dish">
-        <img src="/images/gallery-piatto.jpg" alt="Piatto contemporaneo di Osteria Lume" />
+      <figure class="gallery__item gallery__item--dish" appReveal [revealDelay]="200">
+        <img
+          decoding="async"
+          loading="lazy"
+          src="/images/gallery-piatto.jpg"
+          alt="Piatto della cucina di Osteria Lume"
+        />
       </figure>
     </div>
   </div>

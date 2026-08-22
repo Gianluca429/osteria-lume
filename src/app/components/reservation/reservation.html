@@ -1,18 +1,18 @@
 <section class="reservation" id="prenota">
   <div class="container reservation__inner">
     <div class="reservation__main">
-      <p class="reservation__eyebrow">Prenotazioni</p>
+      <p class="reservation__eyebrow" appReveal [revealDelay]="0">Prenotazioni</p>
 
-      <h2 class="reservation__title">
+      <h2 class="reservation__title" appReveal [revealDelay]="80">
         La tua tavola<br />
         ti aspetta.
       </h2>
 
-      <p class="reservation__description">
+      <p class="reservation__description" appReveal [revealDelay]="140">
         Un pranzo lento, una cena speciale o semplicemente una sera da condividere.
       </p>
 
-      <a class="reservation__cta" href="#contatti">
+      <a class="reservation__cta" href="#contatti" appReveal [revealDelay]="200">
         Prenota un tavolo
         <span aria-hidden="true">→</span>
       </a>

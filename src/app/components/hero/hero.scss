@@ -18,8 +18,9 @@
         height: 100%;
 
         object-fit: cover;
-
         object-position: center;
+
+        animation: hero-image-in 1200ms var(--ease-out-soft) both;
     }
 
     &__overlay {
@@ -116,53 +117,143 @@
 
         background-color: currentColor;
     }
+
+    // ---------------------------------
+    // Entrance animation
+    // ---------------------------------
+
+    &__eyebrow,
+    &__title,
+    &__description,
+    &__cta {
+        opacity: 0;
+        transform: translateY(18px);
+
+        animation: hero-content-in 700ms var(--ease-out-soft) forwards;
+    }
+
+    &__eyebrow {
+        animation-delay: 150ms;
+    }
+
+    &__title {
+        animation-delay: 230ms;
+    }
+
+    &__description {
+        animation-delay: 320ms;
+    }
+
+    &__cta {
+        animation-delay: 410ms;
+    }
 }
+
+// =====================================
+// Hero animations
+// =====================================
+
+@keyframes hero-image-in {
+    from {
+        opacity: 0.85;
+        transform: scale(1.04);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes hero-content-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// =====================================
+// Mobile
+// =====================================
 
 @media (max-width: 768px) {
     .hero {
         align-items: flex-end;
 
         &__image {
-            object-position: 60% center;
+            object-position: 58% center;
         }
 
         &__overlay {
             background:
                 linear-gradient(to top,
-                    rgba(20, 18, 15, 0.7) 0%,
-                    rgba(20, 18, 15, 0.25) 60%,
-                    rgba(20, 18, 15, 0.15) 100%);
+                    rgba(20, 18, 15, 0.82) 0%,
+                    rgba(20, 18, 15, 0.35) 52%,
+                    rgba(20, 18, 15, 0.2) 100%);
         }
 
         &__content {
-            padding-top: 120px;
-            padding-bottom: 96px;
+            padding-top: 140px;
+            padding-bottom: 64px;
         }
 
         &__eyebrow {
-            margin-bottom: var(--space-2);
+            margin-bottom: 14px;
 
             font-size: 10px;
         }
 
         &__title {
-            font-size: clamp(48px, 14vw, 64px);
+            max-width: 340px;
+
+            font-size: clamp(48px, 14vw, 62px);
+            line-height: 0.88;
         }
 
         &__description {
-            margin-top: var(--space-3);
+            max-width: 330px;
+
+            margin-top: 20px;
 
             font-size: 15px;
+            line-height: 1.55;
         }
 
         &__cta {
             width: fit-content;
             align-self: flex-start;
-            margin-top: var(--space-4);
+
+            margin-top: 28px;
+            padding: 15px 24px;
         }
 
         &__scroll {
             display: none;
+        }
+    }
+}
+
+// =====================================
+// Reduced motion
+// =====================================
+
+@media (prefers-reduced-motion: reduce) {
+    .hero {
+
+        &__image,
+        &__eyebrow,
+        &__title,
+        &__description,
+        &__cta {
+            animation: none;
+
+            opacity: 1;
+            transform: none;
         }
     }
 }

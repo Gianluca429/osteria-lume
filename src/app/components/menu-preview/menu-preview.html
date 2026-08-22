@@ -1,12 +1,14 @@
 <section class="menu-preview" id="menu">
   <div class="container">
     <header class="menu-preview__header">
-      <p class="menu-preview__eyebrow">Dalla cucina</p>
+      <p class="menu-preview__eyebrow" appReveal [revealDelay]="0">Dalla cucina</p>
 
-      <h2 class="menu-preview__title">Una carta che cambia con le stagioni.</h2>
+      <h2 class="menu-preview__title" appReveal [revealDelay]="80">
+        Una carta che cambia con le stagioni.
+      </h2>
     </header>
 
-    <div class="menu-preview__grid">
+    <div class="menu-preview__grid" appReveal [revealDelay]="160">
       @for (item of menuItems; track item.name) {
         <article class="menu-card">
           <div class="menu-card__image-wrapper">
@@ -27,7 +29,7 @@
       }
     </div>
 
-    <div class="menu-preview__action">
+    <div class="menu-preview__action" appReveal [revealDelay]="220">
       <a href="#menu-completo"> Scopri il menu completo </a>
     </div>
   </div>

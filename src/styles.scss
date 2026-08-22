@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
+    // ---------------------------------
     // Colors
+    // ---------------------------------
+
     --color-background: #f4f0e8;
     --color-background-secondary: #e7ded0;
     --color-surface: #fcfaf5;
@@ -12,11 +15,17 @@
     --color-olive: #59604a;
     --color-terracotta: #a65f45;
 
+    // ---------------------------------
     // Typography
+    // ---------------------------------
+
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
 
+    // ---------------------------------
     // Spacing
+    // ---------------------------------
+
     --space-1: 8px;
     --space-2: 16px;
     --space-3: 24px;
@@ -26,14 +35,30 @@
     --space-7: 96px;
     --space-8: 128px;
 
+    // ---------------------------------
     // Layout
+    // ---------------------------------
+
     --container-width: 1280px;
     --container-padding: 32px;
 
-    // Effects
+    // ---------------------------------
+    // Transitions
+    // ---------------------------------
+
     --transition-fast: 200ms ease;
     --transition-normal: 400ms ease;
+
+    --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --duration-fast: 250ms;
+    --duration-medium: 600ms;
+    --duration-slow: 900ms;
 }
+
+// =====================================
+// Reset
+// =====================================
 
 * {
     box-sizing: border-box;
@@ -45,8 +70,10 @@ html {
 
 body {
     margin: 0;
+
     background-color: var(--color-background);
     color: var(--color-text);
+
     font-family: var(--font-body);
     font-size: 16px;
     line-height: 1.5;
@@ -81,12 +108,9 @@ p {
     margin: 0;
 }
 
-.container {
-    width: min(calc(100% - (var(--container-padding) * 2)),
-            var(--container-width));
-
-    margin-inline: auto;
-}
+// =====================================
+// Typography
+// =====================================
 
 h1,
 h2,
@@ -101,11 +125,82 @@ p {
     max-width: 65ch;
 }
 
+// =====================================
+// Global container
+// =====================================
+
+.container {
+    width: min(calc(100% - (var(--container-padding) * 2)),
+            var(--container-width));
+
+    margin-inline: auto;
+}
+
+// =====================================
+// Accessibility - keyboard focus
+// =====================================
+
+:focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 4px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+// =====================================
+// Reveal animations
+// =====================================
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+
+    transition:
+        opacity var(--duration-medium) var(--ease-out-soft),
+        transform var(--duration-medium) var(--ease-out-soft);
+
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-complete {
+    will-change: auto;
+}
+
+// =====================================
+// Responsive
+// =====================================
+
 @media (max-width: 768px) {
     :root {
         --container-padding: 20px;
 
         --space-7: 72px;
         --space-8: 96px;
+    }
+}
+
+// =====================================
+// Reduced motion
+// =====================================
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+
+        transition: none;
+
+        will-change: auto;
     }
 }

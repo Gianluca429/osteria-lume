@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RevealDirective } from '../../directives/reveal';
 
 interface MenuItem {
   name: string;
@@ -10,7 +11,7 @@ interface MenuItem {
 
 @Component({
   selector: 'app-menu-preview',
-  imports: [],
+  imports: [RevealDirective],
   templateUrl: './menu-preview.html',
   styleUrl: './menu-preview.scss',
 })
