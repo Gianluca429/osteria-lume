@@ -1,0 +1,141 @@
+.navbar {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 10;
+
+    color: var(--color-text-light);
+
+    &__inner {
+        min-height: 96px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-4);
+    }
+
+    &__logo {
+        display: flex;
+        flex-direction: column;
+
+        line-height: 0.8;
+        text-transform: uppercase;
+
+        span {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+        }
+
+        strong {
+            font-family: var(--font-heading);
+            font-size: 34px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+        gap: var(--space-5);
+
+        a {
+            position: relative;
+
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+
+            &::after {
+                content: '';
+
+                position: absolute;
+                left: 0;
+                bottom: -6px;
+
+                width: 100%;
+                height: 1px;
+
+                background: currentColor;
+
+                transform: scaleX(0);
+                transform-origin: right;
+
+                transition: transform var(--transition-fast);
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+        }
+    }
+
+    &__cta {
+        padding: 13px 22px;
+
+        border: 1px solid currentColor;
+
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        transition:
+            background-color var(--transition-fast),
+            color var(--transition-fast);
+
+        &:hover {
+            background-color: var(--color-surface);
+            color: var(--color-text);
+        }
+    }
+
+    &__toggle {
+        display: none;
+
+        width: 42px;
+        height: 42px;
+
+        padding: 0;
+
+        border: 0;
+        background: transparent;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 6px;
+
+        span {
+            display: block;
+            width: 24px;
+            height: 1px;
+            background-color: currentColor;
+        }
+
+        span:last-child {
+            width: 18px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        &__inner {
+            min-height: 80px;
+        }
+
+        &__links,
+        &__cta {
+            display: none;
+        }
+
+        &__toggle {
+            display: flex;
+        }
+    }
+}
